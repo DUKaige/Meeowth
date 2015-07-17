@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EEE2B5711B59400800D61BC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5701B59400800D61BC7 /* main.m */; };
+		EEE2B5741B59400800D61BC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5731B59400800D61BC7 /* AppDelegate.m */; };
+		EEE2B5771B59400800D61BC7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5761B59400800D61BC7 /* ViewController.m */; };
+		EEE2B57A1B59400800D61BC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE2B5781B59400800D61BC7 /* Main.storyboard */; };
+		EEE2B57C1B59400800D61BC7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE2B57B1B59400800D61BC7 /* Images.xcassets */; };
+		EEE2B57F1B59400800D61BC7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEE2B57D1B59400800D61BC7 /* LaunchScreen.xib */; };
+		EEE2B58B1B59400800D61BC7 /* MeeowthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B58A1B59400800D61BC7 /* MeeowthTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EEE2B5851B59400800D61BC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEE2B5631B59400800D61BC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEE2B56A1B59400800D61BC7;
+			remoteInfo = Meeowth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EEE2B56B1B59400800D61BC7 /* Meeowth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meeowth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE2B56F1B59400800D61BC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEE2B5701B59400800D61BC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EEE2B5721B59400800D61BC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EEE2B5731B59400800D61BC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EEE2B5751B59400800D61BC7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EEE2B5761B59400800D61BC7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EEE2B5791B59400800D61BC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EEE2B57B1B59400800D61BC7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EEE2B57E1B59400800D61BC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EEE2B5841B59400800D61BC7 /* MeeowthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeeowthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE2B5891B59400800D61BC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEE2B58A1B59400800D61BC7 /* MeeowthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeeowthTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEE2B5681B59400800D61BC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEE2B5811B59400800D61BC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EEE2B5621B59400800D61BC7 = {
+			isa = PBXGroup;
+			children = (
+				EEE2B56D1B59400800D61BC7 /* Meeowth */,
+				EEE2B5871B59400800D61BC7 /* MeeowthTests */,
+				EEE2B56C1B59400800D61BC7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EEE2B56C1B59400800D61BC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEE2B56B1B59400800D61BC7 /* Meeowth.app */,
+				EEE2B5841B59400800D61BC7 /* MeeowthTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EEE2B56D1B59400800D61BC7 /* Meeowth */ = {
+			isa = PBXGroup;
+			children = (
+				EEE2B5721B59400800D61BC7 /* AppDelegate.h */,
+				EEE2B5731B59400800D61BC7 /* AppDelegate.m */,
+				EEE2B5751B59400800D61BC7 /* ViewController.h */,
+				EEE2B5761B59400800D61BC7 /* ViewController.m */,
+				EEE2B5781B59400800D61BC7 /* Main.storyboard */,
+				EEE2B57B1B59400800D61BC7 /* Images.xcassets */,
+				EEE2B57D1B59400800D61BC7 /* LaunchScreen.xib */,
+				EEE2B56E1B59400800D61BC7 /* Supporting Files */,
+			);
+			path = Meeowth;
+			sourceTree = "<group>";
+		};
+		EEE2B56E1B59400800D61BC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EEE2B56F1B59400800D61BC7 /* Info.plist */,
+				EEE2B5701B59400800D61BC7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EEE2B5871B59400800D61BC7 /* MeeowthTests */ = {
+			isa = PBXGroup;
+			children = (
+				EEE2B58A1B59400800D61BC7 /* MeeowthTests.m */,
+				EEE2B5881B59400800D61BC7 /* Supporting Files */,
+			);
+			path = MeeowthTests;
+			sourceTree = "<group>";
+		};
+		EEE2B5881B59400800D61BC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EEE2B5891B59400800D61BC7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EEE2B56A1B59400800D61BC7 /* Meeowth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEE2B58E1B59400800D61BC7 /* Build configuration list for PBXNativeTarget "Meeowth" */;
+			buildPhases = (
+				EEE2B5671B59400800D61BC7 /* Sources */,
+				EEE2B5681B59400800D61BC7 /* Frameworks */,
+				EEE2B5691B59400800D61BC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Meeowth;
+			productName = Meeowth;
+			productReference = EEE2B56B1B59400800D61BC7 /* Meeowth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EEE2B5831B59400800D61BC7 /* MeeowthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEE2B5911B59400800D61BC7 /* Build configuration list for PBXNativeTarget "MeeowthTests" */;
+			buildPhases = (
+				EEE2B5801B59400800D61BC7 /* Sources */,
+				EEE2B5811B59400800D61BC7 /* Frameworks */,
+				EEE2B5821B59400800D61BC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEE2B5861B59400800D61BC7 /* PBXTargetDependency */,
+			);
+			name = MeeowthTests;
+			productName = MeeowthTests;
+			productReference = EEE2B5841B59400800D61BC7 /* MeeowthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEE2B5631B59400800D61BC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Dustin Liu";
+				TargetAttributes = {
+					EEE2B56A1B59400800D61BC7 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					EEE2B5831B59400800D61BC7 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = EEE2B56A1B59400800D61BC7;
+					};
+				};
+			};
+			buildConfigurationList = EEE2B5661B59400800D61BC7 /* Build configuration list for PBXProject "Meeowth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EEE2B5621B59400800D61BC7;
+			productRefGroup = EEE2B56C1B59400800D61BC7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEE2B56A1B59400800D61BC7 /* Meeowth */,
+				EEE2B5831B59400800D61BC7 /* MeeowthTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEE2B5691B59400800D61BC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEE2B57A1B59400800D61BC7 /* Main.storyboard in Resources */,
+				EEE2B57F1B59400800D61BC7 /* LaunchScreen.xib in Resources */,
+				EEE2B57C1B59400800D61BC7 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEE2B5821B59400800D61BC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEE2B5671B59400800D61BC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEE2B5771B59400800D61BC7 /* ViewController.m in Sources */,
+				EEE2B5741B59400800D61BC7 /* AppDelegate.m in Sources */,
+				EEE2B5711B59400800D61BC7 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEE2B5801B59400800D61BC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEE2B58B1B59400800D61BC7 /* MeeowthTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEE2B5861B59400800D61BC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEE2B56A1B59400800D61BC7 /* Meeowth */;
+			targetProxy = EEE2B5851B59400800D61BC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EEE2B5781B59400800D61BC7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEE2B5791B59400800D61BC7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EEE2B57D1B59400800D61BC7 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEE2B57E1B59400800D61BC7 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EEE2B58C1B59400800D61BC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EEE2B58D1B59400800D61BC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EEE2B58F1B59400800D61BC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Meeowth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EEE2B5901B59400800D61BC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Meeowth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EEE2B5921B59400800D61BC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MeeowthTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meeowth.app/Meeowth";
+			};
+			name = Debug;
+		};
+		EEE2B5931B59400800D61BC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MeeowthTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meeowth.app/Meeowth";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EEE2B5661B59400800D61BC7 /* Build configuration list for PBXProject "Meeowth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEE2B58C1B59400800D61BC7 /* Debug */,
+				EEE2B58D1B59400800D61BC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEE2B58E1B59400800D61BC7 /* Build configuration list for PBXNativeTarget "Meeowth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEE2B58F1B59400800D61BC7 /* Debug */,
+				EEE2B5901B59400800D61BC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EEE2B5911B59400800D61BC7 /* Build configuration list for PBXNativeTarget "MeeowthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEE2B5921B59400800D61BC7 /* Debug */,
+				EEE2B5931B59400800D61BC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EEE2B5631B59400800D61BC7 /* Project object */;
+}
