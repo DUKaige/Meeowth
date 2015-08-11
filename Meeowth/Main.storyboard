@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1cW-3v-62T">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Design View Controller-->
+        <scene sceneID="z4z-Wg-doj">
+            <objects>
+                <viewController storyboardIdentifier="DesignViewController" id="1cW-3v-62T" customClass="DesignViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qD7-oB-vWq"/>
+                        <viewControllerLayoutGuide type="bottom" id="56G-o2-qpD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QA4-P5-alh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xrh-iB-Exc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem id="DVY-Ie-06r">
+                                        <barButtonItem key="leftBarButtonItem" title="三" id="Eej-wT-8wP">
+                                            <connections>
+                                                <action selector="showFileList:" destination="1cW-3v-62T" id="e1Z-fS-wJh"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="+" id="UDj-IY-POV">
+                                            <connections>
+                                                <action selector="newCreateButton:" destination="1cW-3v-62T" id="37z-MK-vi5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xrh-iB-Exc" firstAttribute="leading" secondItem="QA4-P5-alh" secondAttribute="leading" id="roR-xs-dFZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Xrh-iB-Exc" secondAttribute="trailing" id="uAX-s9-r7C"/>
+                            <constraint firstItem="Xrh-iB-Exc" firstAttribute="top" secondItem="QA4-P5-alh" secondAttribute="top" id="w1o-FC-t9p"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dJG-cb-t6b"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="Xrh-iB-Exc" id="uCb-NY-yik"/>
+                        <outlet property="titleItem" destination="DVY-Ie-06r" id="04J-RM-JkA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e1m-Wx-DXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2169" y="454"/>
+        </scene>
+    </scenes>
+</document>
