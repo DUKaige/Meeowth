@@ -18,6 +18,9 @@
 		EE48243C1B61471B00C2EB61 /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EE48243B1B61471B00C2EB61 /* SimpleVertex.glsl */; };
 		EE776B4C1B5D19ED00193928 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE776B4B1B5D19ED00193928 /* OpenGLES.framework */; };
 		EEAD0C6C1B6931BB005EF486 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEAD0C6E1B6931BB005EF486 /* Localizable.strings */; };
+		EEC6F7EF1B8ADC5000761DB1 /* AssistantFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6F7EC1B8ADC5000761DB1 /* AssistantFunctions.swift */; };
+		EEC6F7F01B8ADC5000761DB1 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6F7ED1B8ADC5000761DB1 /* Functions.swift */; };
+		EEC6F7F11B8ADC5000761DB1 /* Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6F7EE1B8ADC5000761DB1 /* Legacy.swift */; };
 		EEE2B5711B59400800D61BC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5701B59400800D61BC7 /* main.m */; };
 		EEE2B58B1B59400800D61BC7 /* MeeowthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B58A1B59400800D61BC7 /* MeeowthTests.m */; };
 		EEE2B5B51B59402E00D61BC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5981B59402E00D61BC7 /* AppDelegate.m */; };
@@ -32,9 +35,6 @@
 		EEE2B5BE1B59402E00D61BC7 /* KeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5A91B59402E00D61BC7 /* KeyButton.m */; };
 		EEE2B5BF1B59402E00D61BC7 /* CalculationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5AB1B59402E00D61BC7 /* CalculationView.m */; };
 		EEE2B5C01B59402E00D61BC7 /* FormulaWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5AD1B59402E00D61BC7 /* FormulaWebView.m */; };
-		EEE2B5C11B59402E00D61BC7 /* AssistantFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5AE1B59402E00D61BC7 /* AssistantFunctions.swift */; };
-		EEE2B5C21B59402E00D61BC7 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5AF1B59402E00D61BC7 /* Functions.swift */; };
-		EEE2B5C31B59402E00D61BC7 /* Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2B5B01B59402E00D61BC7 /* Legacy.swift */; };
 		EEE2B5C51B59402E00D61BC7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEE2B5B21B59402E00D61BC7 /* LaunchScreen.xib */; };
 		EEE2B5CA1B5952D600D61BC7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EEE2B5C61B5952D600D61BC7 /* Default.png */; };
 		EEE2B5CB1B5952D600D61BC7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEE2B5C71B5952D600D61BC7 /* Default-568h@2x.png */; };
@@ -71,6 +71,9 @@
 		EE48243B1B61471B00C2EB61 /* SimpleVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleVertex.glsl; sourceTree = "<group>"; };
 		EE776B4B1B5D19ED00193928 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		EEAD0C6F1B6931C0005EF486 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EEC6F7EC1B8ADC5000761DB1 /* AssistantFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssistantFunctions.swift; sourceTree = "<group>"; };
+		EEC6F7ED1B8ADC5000761DB1 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		EEC6F7EE1B8ADC5000761DB1 /* Legacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legacy.swift; sourceTree = "<group>"; };
 		EEE2B56B1B59400800D61BC7 /* Meeowth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meeowth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE2B56F1B59400800D61BC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEE2B5701B59400800D61BC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,9 +104,6 @@
 		EEE2B5AB1B59402E00D61BC7 /* CalculationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculationView.m; sourceTree = "<group>"; };
 		EEE2B5AC1B59402E00D61BC7 /* FormulaWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormulaWebView.h; sourceTree = "<group>"; };
 		EEE2B5AD1B59402E00D61BC7 /* FormulaWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormulaWebView.m; sourceTree = "<group>"; };
-		EEE2B5AE1B59402E00D61BC7 /* AssistantFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssistantFunctions.swift; sourceTree = "<group>"; };
-		EEE2B5AF1B59402E00D61BC7 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		EEE2B5B01B59402E00D61BC7 /* Legacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legacy.swift; sourceTree = "<group>"; };
 		EEE2B5B21B59402E00D61BC7 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		EEE2B5C61B5952D600D61BC7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		EEE2B5C71B5952D600D61BC7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -133,9 +133,9 @@
 		EE26A58C1B76C4A100A158A7 /* 3d stuff */ = {
 			isa = PBXGroup;
 			children = (
+				EE26A58D1B76CA0200A158A7 /* Cocos3DMathLib */,
 				EE26A5741B76C42300A158A7 /* OpenGLView.h */,
 				EE26A5751B76C42300A158A7 /* OpenGLView.m */,
-				EE26A58D1B76CA0200A158A7 /* Cocos3DMathLib */,
 				EE26A5761B76C42300A158A7 /* SimpleVertex.glsl */,
 				EE26A5771B76C42300A158A7 /* SimpleFragment.glsl */,
 			);
@@ -211,10 +211,10 @@
 				EEE2B5AB1B59402E00D61BC7 /* CalculationView.m */,
 				EEE2B5AC1B59402E00D61BC7 /* FormulaWebView.h */,
 				EEE2B5AD1B59402E00D61BC7 /* FormulaWebView.m */,
-				EEE2B5AE1B59402E00D61BC7 /* AssistantFunctions.swift */,
-				EEE2B5AF1B59402E00D61BC7 /* Functions.swift */,
-				EEE2B5B01B59402E00D61BC7 /* Legacy.swift */,
 				EEE2B5B21B59402E00D61BC7 /* LaunchScreen.xib */,
+				EEC6F7EC1B8ADC5000761DB1 /* AssistantFunctions.swift */,
+				EEC6F7ED1B8ADC5000761DB1 /* Functions.swift */,
+				EEC6F7EE1B8ADC5000761DB1 /* Legacy.swift */,
 				EE26A57B1B76C46A00A158A7 /* Images.xcassets */,
 				EEE2B56E1B59400800D61BC7 /* Supporting Files */,
 				EEE2B5941B59402D00D61BC7 /* Meeowth-Bridging-Header.h */,
@@ -363,16 +363,16 @@
 				EEE2B5B71B59402E00D61BC7 /* FormulaTextField.m in Sources */,
 				EEE2B5BC1B59402E00D61BC7 /* DesignViewController.m in Sources */,
 				EEE2B5BD1B59402E00D61BC7 /* BezierPathScrollView.m in Sources */,
-				EEE2B5C11B59402E00D61BC7 /* AssistantFunctions.swift in Sources */,
 				EE26A59A1B76CA0200A158A7 /* CC3Kazmath.c in Sources */,
-				EEE2B5C21B59402E00D61BC7 /* Functions.swift in Sources */,
+				EEC6F7F11B8ADC5000761DB1 /* Legacy.swift in Sources */,
 				EEE2B5BA1B59402E00D61BC7 /* FunctionView.m in Sources */,
 				EE26A59B1B76CA0200A158A7 /* CC3Math.m in Sources */,
 				EEE2B5C01B59402E00D61BC7 /* FormulaWebView.m in Sources */,
+				EEC6F7F01B8ADC5000761DB1 /* Functions.swift in Sources */,
 				EEE2B5B91B59402E00D61BC7 /* EquationView.m in Sources */,
-				EEE2B5C31B59402E00D61BC7 /* Legacy.swift in Sources */,
 				EE26A5991B76CA0200A158A7 /* CC3GLMatrix.m in Sources */,
 				EEE2B5B51B59402E00D61BC7 /* AppDelegate.m in Sources */,
+				EEC6F7EF1B8ADC5000761DB1 /* AssistantFunctions.swift in Sources */,
 				EEE2B5BF1B59402E00D61BC7 /* CalculationView.m in Sources */,
 				EEE2B5BE1B59402E00D61BC7 /* KeyButton.m in Sources */,
 				EE26A5981B76CA0200A158A7 /* CC3Foundation.m in Sources */,

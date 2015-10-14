@@ -182,25 +182,25 @@
     aboutButton.layer.borderWidth = 1;
     aboutButton.layer.cornerRadius = 5;
     //[aboutButton addTarget:self action:@selector() forControlEvents:UIControlEventTouchUpInside];
-    [_settingsBar addSubview:aboutButton];
+    //[_settingsBar addSubview:aboutButton];
     
     UILabel *websiteLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 10, 100, 30)];
     websiteLabel.text = @"visit our website";
     websiteLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:11];
-    [_settingsBar addSubview:websiteLabel];
+    //[_settingsBar addSubview:websiteLabel];
 
     //UITapGestureRecognizer *websiteTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(<#selector#>)];
     //[websiteLabel addGestureRecognizer:websiteTap];
     
     
     
-    UIButton *emailButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 60, 150,30 )];
+    UIButton *emailButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 10, 150,30 )];
     emailButton.backgroundColor = [UIColor clearColor];
     UIImageView *image = [[UIImageView alloc]initWithFrame:CGRectMake(0,0, 30, 30)];
     image.image = [UIImage imageNamed:@"email"];
     [emailButton addSubview:image];
     
-    UILabel *emailLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 60, 100, 30)];
+    UILabel *emailLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 10, 100, 30)];
     emailLabel.text = @"email to developers";
     emailLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:11];
     [_settingsBar addSubview:emailLabel];
@@ -215,7 +215,7 @@
     
     
     
-    UIButton *rateButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 110, 150,30 )];
+    UIButton *rateButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 60, 150,30 )];
     rateButton.backgroundColor = [UIColor clearColor];
     UIImageView *rateImage = [[UIImageView alloc]initWithFrame:CGRectMake(0,0, 30, 30)];
     rateImage.image = [UIImage imageNamed:@"star"];
@@ -223,7 +223,7 @@
     [rateButton addTarget:self action:@selector(goToReview) forControlEvents:UIControlEventTouchUpInside];
     [_settingsBar addSubview:rateButton];
     
-    UILabel *rateLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 110, 100, 30)];
+    UILabel *rateLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 60, 100, 30)];
     rateLabel.text = @"Rate Meeowth";
     rateLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:11];
     [_settingsBar addSubview:rateLabel];
@@ -289,7 +289,7 @@
     _listOfFile.dataSource = self;
 
     
-    
+    [self produceErrorMessage:@"Click the button on the upper right corner to creat a new module."];
     //app delegate
     
 }
@@ -403,6 +403,7 @@
 {
     [self generateNewGraphAtPosition:CGPointMake(self.scrollView.contentOffset.x + 20, self.scrollView.contentOffset.y + 50)];
     [self hideCollectionOfOptions];
+    [self produceErrorMessage:@"Connect a function to the graph to plot something."];
 }
 - (void)newThreeDPlot:(id)sender
 {
@@ -643,10 +644,6 @@
 
 -(void)showKeyboardWithID:(NSString *)ID
 {
-
-    
-    
-    
     [self twoND];
     [self twoND];
     if ([ID isEqualToString:@"function"]) {
@@ -903,7 +900,11 @@
             [smallDictionary setValue:[NSNumber numberWithDouble:thisView.frame.size.height] forKey:@"height"];
             
             [smallDictionary setValue:[thisView produceIndexOfFunctions] forKey:@"functionsConnected"];
+            
+            [smallDictionary setValue:[NSNumber numberWithDouble:thisView.rangeStart] forKey:@"rangeStart"];
+            [smallDictionary setValue:[NSNumber numberWithDouble:thisView.rangeEnd] forKey:@"rangeEnd"];
         }
+        
         else if ([[view moduleType] isEqualToString:@"calculation"]) {
             CalculationView *thisView = view;
             [smallDictionary setValue:@"calculation" forKey:@"type"];
@@ -1081,6 +1082,9 @@
                 [self generateNewGraphAtPosition:CGPointMake([[thisdict objectForKey:@"x"] floatValue], [[thisdict objectForKey:@"y"]floatValue])];
                 Graph *this = [[self allModules] objectAtIndex:count];
                 [this setFrame:CGRectMake([[thisdict objectForKey:@"x"] floatValue],[[thisdict objectForKey:@"y"] floatValue],[[thisdict objectForKey:@"width"] floatValue],[[thisdict objectForKey:@"height"] floatValue])];
+                this.rangeStart = [[thisdict objectForKey:@"rangeStart"] doubleValue];
+                this.rangeEnd = [[thisdict objectForKey:@"rangeEnd"] doubleValue];
+                [this setNeedsDisplay];
             }
             else if ([[thisdict objectForKey:@"type"] isEqualToString:@"equation"]) {
                 [self generateNewEquationAtPosition:CGPointMake([[thisdict objectForKey:@"x"] floatValue], [[thisdict objectForKey:@"y"]floatValue])];
@@ -1146,7 +1150,7 @@
         animationOfErrorMessageAvai = NO;
         [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{        _errorReportView.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width,50);
         } completion:^(BOOL finished){}];
-        [UIView animateWithDuration:0.5 delay:2.5 options:UIViewAnimationOptionBeginFromCurrentState animations:^{        _errorReportView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width,50);
+        [UIView animateWithDuration:0.5 delay:4.5 options:UIViewAnimationOptionBeginFromCurrentState animations:^{        _errorReportView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width,50);
         } completion:^(BOOL finished){        animationOfErrorMessageAvai = YES;}];
     }
 }

@@ -400,6 +400,7 @@
         [UIView animateWithDuration:0.5 animations:^{
             menu.alpha = 1;
         }];
+        [self.parent produceErrorMessage:@"You can drag the connection button to other modules."];
         [self.parent setAutoHiddenView:menu];
     }
     else
@@ -641,7 +642,8 @@
     [self.parent generateNewFunctionAtPosition:CGPointMake(self.frame.origin.x, self.frame.origin.y)];
     FunctionView *this = [self.parent.allModules lastObject];
     [this setAlpha:0];
-    Functions *result = [[Functions alloc] initWithFunction:[self.thisFunction rendering:[self.thisFunction reduceSymbolically:[self.thisFunction derivAlgo:self.thisFunction.functionStructure vari:[self.thisFunction.varList objectAtIndex:0]]]] varList:self.thisFunction.varList];
+    Functions *result =[[Functions alloc]initWithFunction:[self.thisFunction rendering:[self.thisFunction reduceSymbolically:[self.thisFunction reduceSymbolically:[self.thisFunction derivAlgo:self.thisFunction.functionStructure vari:[self.thisFunction.varList objectAtIndex:0]]]]] varList:self.thisFunction.varList];
+    
     [this setThisFunction:result];
 
     [this.formulaField mySetText:result.functionString];

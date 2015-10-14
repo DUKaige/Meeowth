@@ -11,8 +11,8 @@
 @implementation Graph
 -(id)initWithFrame:(CGRect)frame
 {
-    rangeStart = 0;
-    rangeEnd = 9;
+    _rangeStart = 0;
+    _rangeEnd = 9;
     allPaths = [[NSMutableArray alloc]init];
     _functionsConnected = [[NSMutableArray alloc]init];
     return [super initWithFrame:frame];
@@ -40,8 +40,8 @@
             {
                 NSMutableArray *xList = [[NSMutableArray alloc]init];
                 NSMutableArray *yList = [[NSMutableArray alloc]init];
-                double interval = (rangeEnd - rangeStart)/self.frame.size.width;
-                for (double i = rangeStart; i <= rangeEnd; i += interval)
+                double interval = (_rangeEnd - _rangeStart)/self.frame.size.width;
+                for (double i = _rangeStart; i <= _rangeEnd; i += interval)
                 {
                     NSNumber *thisNumber =[NSNumber numberWithDouble:[eachFunctionView.thisFunction produceValueFromStructureAlgo:eachFunctionView.thisFunction.functionStructure varList:@{[eachFunctionView.thisFunction.varList objectAtIndex:0]: [NSNumber numberWithDouble:i]}]];
                     if ( thisNumber.doubleValue < 10000000000 && thisNumber.doubleValue > -10000000000 )
@@ -57,7 +57,7 @@
         CGFloat widgeWidth = 50;
         double maxY = [self maxInResult:result];
         double minY = [self minInResult:result];
-        CGFloat unitWidth = (self.frame.size.width - 2 * widgeWidth)/(rangeEnd - rangeStart);
+        CGFloat unitWidth = (self.frame.size.width - 2 * widgeWidth)/(_rangeEnd - _rangeStart);
         if (maxY ==  minY)
         {
             maxY = minY + 1;
@@ -74,7 +74,7 @@
             int i = 0;
             double xValue = [[[xyComb objectAtIndex:0]objectAtIndex:0] doubleValue];
             double yValue = [[[xyComb objectAtIndex:1]objectAtIndex:0] doubleValue];
-            CGFloat xPosition = widgeWidth + (xValue - rangeStart) * unitWidth;
+            CGFloat xPosition = widgeWidth + (xValue - _rangeStart) * unitWidth;
             CGFloat yPosition = self.frame.size.height - widgeWidth - (yValue - minY) * unitHeight;
             
             
@@ -84,7 +84,7 @@
             while (i < [[xyComb objectAtIndex:0] count]) {
                 double xValue = [[[xyComb objectAtIndex:0]objectAtIndex:i] doubleValue];
                 double yValue = [[[xyComb objectAtIndex:1]objectAtIndex:i] doubleValue];
-                CGFloat xPosition = widgeWidth + (xValue - rangeStart) * unitWidth;
+                CGFloat xPosition = widgeWidth + (xValue - _rangeStart) * unitWidth;
                 CGFloat yPosition = self.frame.size.height - widgeWidth - (yValue - minY) * unitHeight;
                 [path addLineToPoint:CGPointMake(xPosition, yPosition)];
                 i += 1;
@@ -108,12 +108,12 @@
         [yLine stroke];
         
         //add small lines
-        NSArray *xIntervals = [[NSArray alloc]initWithArray:[self findProperInterval:rangeStart number2:rangeEnd]];
+        NSArray *xIntervals = [[NSArray alloc]initWithArray:[self findProperInterval:_rangeStart number2:_rangeEnd]];
         NSArray *yIntervals = [[NSArray alloc]initWithArray:[self findProperInterval:minY number2:maxY]];
         int i = 0;
         
         while (i < [xIntervals count]) {
-            CGFloat xCoor = widgeWidth + ([[xIntervals objectAtIndex:i] doubleValue] - rangeStart) * unitWidth;
+            CGFloat xCoor = widgeWidth + ([[xIntervals objectAtIndex:i] doubleValue] - _rangeStart) * unitWidth;
             UIBezierPath *smallLine = [[UIBezierPath alloc]init];
             [allPaths addObject:smallLine];
             [smallLine moveToPoint:CGPointMake(xCoor, self.frame.size.height - widgeWidth)];
@@ -316,12 +316,12 @@
         UIView *firstHolder = [[UIView alloc]initWithFrame:CGRectMake(0, 0, rangeView.frame.size.width,heightForEach)];
         firstHolder.backgroundColor = [UIColor whiteColor];
         startField = [[FormulaTextField alloc]initWithFrame:CGRectMake(5, 5,firstHolder.frame.size.width/2 - 10, heightForEach - 10)];
-        [startField mySetText: [self jianLingJiuShan:[NSString stringWithFormat:@"%f",rangeStart]]];
+        [startField mySetText: [self jianLingJiuShan:[NSString stringWithFormat:@"%f",_rangeStart]]];
         startField.borderStyle = UITextBorderStyleRoundedRect;
         startField.delegate = self;
         startField.inputView  = [[UIView alloc]initWithFrame:CGRectZero];
         endField = [[FormulaTextField alloc]initWithFrame:CGRectMake(firstHolder.frame.size.width/2 + 5,5 ,firstHolder.frame.size.width/2 - 10, heightForEach - 10)];
-        [endField mySetText:[self jianLingJiuShan:[NSString stringWithFormat:@"%f",rangeEnd]]];
+        [endField mySetText:[self jianLingJiuShan:[NSString stringWithFormat:@"%f",_rangeEnd]]];
         endField.delegate = self;
         endField.borderStyle = UITextBorderStyleRoundedRect;
         endField.inputView  = [[UIView alloc]initWithFrame:CGRectZero];
@@ -366,13 +366,13 @@
         }];
         if ([self ifNumeric:[startField text]] && [self ifNumeric:[endField text]]) {
             if ([[startField text] doubleValue] < [[endField text]doubleValue]) {
-                if(rangeStart != [[startField text] doubleValue])
+                if(_rangeStart != [[startField text] doubleValue])
                 {
-                    rangeStart = [[startField text] doubleValue];
+                    _rangeStart = [[startField text] doubleValue];
                     reset = YES;
                 }
-                if (rangeEnd != [[endField text]doubleValue]){
-                    rangeEnd = [[endField text]doubleValue];
+                if (_rangeEnd != [[endField text]doubleValue]){
+                    _rangeEnd = [[endField text]doubleValue];
                     reset = YES;
                 }
                 if (reset) {

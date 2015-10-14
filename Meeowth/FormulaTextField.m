@@ -72,7 +72,7 @@
                 }
                 else
                 {
-                    [self removeThingAtIndex:[[position objectAtIndex:0] integerValue] - 1];
+                    [self removeThingAtIndex:[[position objectAtIndex:0] integerValue]];
                 }
             }
         }

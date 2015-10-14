@@ -27,13 +27,12 @@
     FormulaTextField *endField;
     
     //plotting
-    double rangeStart;
-    double rangeEnd;
     
     //removeAllPath
     NSMutableArray *allPaths;
 }
-
+@property double rangeStart;
+@property double rangeEnd;
 @property (retain) DesignViewController  *parent;
 @property NSInteger moduleTagNumber;
 @property (retain) NSMutableArray *functionsConnected;

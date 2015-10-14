@@ -18,7 +18,7 @@ class Functions: NSObject {
         self.initialVarlist = varList
         self.functionString = function
         let numericJdgCount = count((function as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.decimalDigitCharacterSet()));
-        
+
         if function.isEmpty {
             self.functionStructure = []
         }
@@ -59,13 +59,11 @@ class Functions: NSObject {
             {
                 self.polynomialStructure = []
             }
-            
         }
         println(self.functionStructure)
 
     }
-    
-    
+
     func produceFunctionStrcture(st:String,varList:[String])->AnyObject
     {
         var stringOfFunction = cleanAllSpaces(st)
@@ -81,7 +79,7 @@ class Functions: NSObject {
         {
             return stringOfFunction
         }
-        
+
         let numericJdgCount = count((stringOfFunction as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.decimalDigitCharacterSet()));
         if numericJdgCount == 0
         {
@@ -94,13 +92,13 @@ class Functions: NSObject {
                 return (stringOfFunction as NSString).doubleValue
             }
         }
-        
+
         if characterAtIndex(stringOfFunction, 0) == "+"  || characterAtIndex(stringOfFunction, 0) == "*" || characterAtIndex(stringOfFunction, 0) == "/" || characterAtIndex(stringOfFunction, 0) == "^"
         {
             self.valid = false
             return []
         }
-        
+
         let lengthOfFunction = count(stringOfFunction)
         var i = 0
         var quoteCount = 0
@@ -124,7 +122,7 @@ class Functions: NSObject {
             self.valid = false
             return []
         }
-        
+
         let maxQuoteNumber = maxInArray(quoteRecord)
         var thisQuoteNumber = 0
         while thisQuoteNumber <= maxQuoteNumber
@@ -154,34 +152,27 @@ class Functions: NSObject {
                 }
                 i += 1
             }
-            
-            
-            
+
             if count(positions) > 0
             {
                 var resultList:[AnyObject] = ["add"]
                 i = 0
-                
+
                 resultList.append(produceFunctionStrcture((stringOfFunction as NSString).substringWithRange(NSMakeRange(0, positions[i] )),varList: varList))
-                
-                
+
                 while i < count(positions)
                 {
-                    
                     if i == count(positions) - 1
                     {
                         if plusOrMinus[i] == 1
                         {
                             resultList.append(produceFunctionStrcture((stringOfFunction as NSString).substringWithRange(NSMakeRange(positions[i] + 1, count(stringOfFunction) - positions[i] - 1)),varList: varList))
-                            
                         }
                         else
                         {
                             resultList.append(["neg",produceFunctionStrcture((stringOfFunction as NSString).substringWithRange(NSMakeRange(positions[i] + 1, count(stringOfFunction) - positions[i] - 1)),varList: varList)])
-                            
                         }
                     }
-                        
                     else
                     {
                         if plusOrMinus[i] == 1
@@ -191,22 +182,16 @@ class Functions: NSObject {
                         else
                         {
                             resultList.append(["neg",produceFunctionStrcture((stringOfFunction as NSString).substringWithRange(NSMakeRange(positions[i] + 1, positions[i + 1] - positions[i] - 1 )),varList: varList)])
-                            
                         }
                     }
                     i += 1
                 }
-                
-                
                 if (count(resultList) > 0)
                 {
                     return resultList
                 }
             }
-            
-            
-            
-            
+
             i = 0
             positions = []
             plusOrMinus = []
@@ -224,30 +209,30 @@ class Functions: NSObject {
                 }
                 i += 1
             }
-            
+
             if count(positions) > 0
             {
                 var resultList:[AnyObject] = ["product"]
                 i = 0
                 resultList.append(produceFunctionStrcture((stringOfFunction as NSString).substringWithRange(NSMakeRange(0, positions[i] )),varList: varList))
-                
+
                 while i < count(positions)
                 {
-                    
+
                     if i == count(positions) - 1
                     {
                         if plusOrMinus[i] == 1
                         {
                             resultList.append(produceFunctionStrcture((stringOfFunction as NSString).substringWithRange(NSMakeRange(positions[i] + 1, count(stringOfFunction) - positions[i] - 1)),varList: varList))
-                            
+
                         }
                         else
                         {
                             resultList.append(["rev",produceFunctionStrcture((stringOfFunction as NSString).substringWithRange(NSMakeRange(positions[i] + 1, count(stringOfFunction) - positions[i] - 1)),varList: varList)])
-                            
+
                         }
                     }
-                        
+
                     else
                     {
                         if plusOrMinus[i] == 1
@@ -257,24 +242,20 @@ class Functions: NSObject {
                         else
                         {
                             resultList.append(["rev",produceFunctionStrcture((stringOfFunction as NSString).substringWithRange(NSMakeRange(positions[i] + 1, positions[i + 1] - positions[i] - 1 )),varList: varList)])
-                            
+
                         }
                     }
                     i += 1
                 }
-                
-                
-                
+
                 if (count(resultList) > 0)
                 {
                     return resultList
                 }
             }
-            
-            
             i = 0
             //pow
-            
+
             while i < count(stringOfFunction)
             {
                 if quoteRecord[i] == thisQuoteNumber && characterAtIndex(stringOfFunction, i) == "^"
@@ -331,9 +312,7 @@ class Functions: NSObject {
         return []
     }
 
-    
-    
-    
+
     func substitudeValue (this: [AnyObject], that: [String: Double]) -> [AnyObject] {
         var varList = that
         varList["π"] = M_PI
@@ -341,7 +320,6 @@ class Functions: NSObject {
         var expr = this
         var exprcopy = expr
         exprcopy.removeAtIndex(0)
-        
         for i in exprcopy {
             if ifArray(i) {
                 if ((i as! [AnyObject]).count == 1) && (varList[(i as! [AnyObject])[0] as! String] != nil) {
@@ -368,8 +346,7 @@ class Functions: NSObject {
         }
         return expr
     }
-    
-    
+
     func produceValueFromStructureAlgo (this: [AnyObject], varList: [String: Double]) -> Double {
         var expr = substitudeValue(this, that: varList)
         for i in expr {
@@ -474,504 +451,293 @@ class Functions: NSObject {
         }
         return Double(IntMax())
     }
-    
+
     func derivAlgo (this: [AnyObject], vari: String) -> AnyObject {
-        
+
         var expr = this
-        
+
         if expr[0] is String && expr[0] as! String == "add" {
-            
             var exprCopy = expr
-            
             exprCopy.removeAtIndex(0)
-            
             for i in exprCopy {
-                
                 if ifArray(i) {
-                    
                     expr[(expr as NSArray).indexOfObject(i)] = derivAlgo(i as! [AnyObject], vari: vari)
-                    
                 }
-                    
                 else if i is String && i as! String == vari {
-                    
                     expr[(expr as NSArray).indexOfObject(i)] = 1
-                    
                 }
-                    
                 else if i is String && i as! String != vari {
-                    
                     expr[(expr as NSArray).indexOfObject(i)] = 0
-                    
                 }
-                    
-                    
-                    
                 else if i is Double {
-                    
                     expr[(expr as NSArray).indexOfObject(i)] = 0
-                    
                 }
-                
             }
-            
         }
-            
         else if expr[0] is String && expr[0] as! String == "product" {
-            
             var exprCopy = expr
-            
             exprCopy.removeAtIndex(0)
-            
             var result: [AnyObject] = ["add"]
-            
             var i = 0
-            
             while i < exprCopy.count {
-                
                 var temp = expr
-                
                 if ifArray(exprCopy[i]) {
-                    
                     temp[i+1] = derivAlgo(temp[i+1] as! [AnyObject], vari: vari)
-                    
                     result.append(temp)
-                    
                 }
-                    
                 else {
-                    
                     if exprCopy[i] is Double || exprCopy[i] is Int || (exprCopy[i] is String && exprCopy[i] as! String != vari) {
-                        
                         temp[i+1] = 0
-                        
                         result.append(temp)
-                        
                     }
-                        
                     else {
-                        
                         temp[i+1] = 1
-                        
                         result.append(temp)
-                        
                     }
-                    
                 }
-                
                 i += 1
-                
             }
-            
             expr = result
-            
         }
         else if expr[0] is String && inhere(Array(operationDict.keys), expr[0]) {
-            
             switch expr[0] as! String {
-                
             case "neg":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["neg", ["product", expr[1], derivAlgo(expr[1] as! [AnyObject], vari: vari)]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["neg", 1]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
                 break
-                
             case "rev":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["neg", ["product", derivAlgo(expr[1] as! [AnyObject], vari: vari), ["rev", ["pow", expr[1], 2]]]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["neg", ["rev", ["pow", expr[1], 2]]]
-                    
                 }
-                    
                     //                else if expr[1] is String && expr[1] as! String != vari {
-                    
                     //                    expr = ["add",0,0]
-                    
                     //                }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
                 break
-                
             case "sin":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["product", ["cos", expr[1]], derivAlgo(expr[1] as! [AnyObject], vari: vari)]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["cos", expr[1]]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
                 break
-                
             case "cos":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["neg", ["product", ["cos", expr[1]], derivAlgo(expr[1] as! [AnyObject], vari: vari)]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["neg", ["cos", expr[1]]]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
+                break
+            case "tan":
+                if ifArray(expr[1]) {
+                    expr = ["product",derivAlgo(expr[1] as! [AnyObject], vari: vari),["pow",["sec",expr[1]],2]]
+                }
+                else if expr[1] is String && expr[1] as! String == vari {
+                    expr = ["pow",["sec",vari],2]
+                }
+                else {
+                    expr = ["add",0,0]
+                }
                 break
             case "exp":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["product", derivAlgo(expr[1] as! [AnyObject], vari: vari), expr[1]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["exp",vari]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
                 break
-                
             case "ln":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["product", derivAlgo(expr[1] as! [AnyObject], vari: vari), ["rev", expr[1]]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["rev", expr[1]]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
                 break
-                
             case "log2":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["product", 1/log(2.0), ["rev",expr[1]], derivAlgo(["ln",expr[1]], vari: vari)]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["product", log(2.0), ["rev",expr[1]]]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
                 break
-                
             case "log10":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["product", log(10.0), ["rev",expr[1]], derivAlgo(["ln",expr[1]], vari: vari)]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["product", log(10.0), ["rev",expr[1]]]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
                 break
-                
-                
-                
             case "arcsin":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["product",expr[1],["rev",["sqrt",["add",1,["pow",expr[1],2]]]]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["rev",["sqrt",["add",1,["neg",["pow","x",2]]]]]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
                 break
-                
             case "arccos":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["neg",["product",derivAlgo(expr[1] as! [AnyObject], vari: vari),["rev",["sqrt",["add",1,["neg",["pow",expr[1],2]]]]]]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["neg",["rev",["sqrt",["add",1,["neg",["pow","x",2]]]]]]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
                 break
-                
             case "arctan":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["product",derivAlgo(expr[1] as! [AnyObject], vari: vari),["rev",["add",1,["pow",expr[1],2]]]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["rev",["add",1,["pow","x",2]]]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
                 break
-                
-                
-                
                 // ---------我加的
             case "cot":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["neg",["product",derivAlgo(expr[1] as! [AnyObject], vari: vari),["pow",["csc",expr[1]],2]]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["neg",["pow",["csc",expr[1]],2]]
-                    
                 }
-                    
                 else
-                    
                 {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
             case "csc":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["neg",["product",derivAlgo(expr[1] as! [AnyObject], vari: vari),["cot",expr[1]],["csc",expr[1]]]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["neg",["product",["cot",expr[1]],["csc",expr[1]]]]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
             case "sec":
-                
                 if ifArray(expr[1]) {
-                    
                     expr = ["neg",["product",derivAlgo(expr[1] as! [AnyObject], vari: vari),["sec",expr[1]],["tan",expr[1]]]]
-                    
                 }
-                    
                 else if expr[1] is String && expr[1] as! String == vari {
-                    
                     expr = ["neg",["product",["sec",expr[1]],["tan",expr[1]]]]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["add",0,0]
-                    
                 }
-                
             case "sqrt":
-                
                 expr = derivAlgo(["pow",expr[1],0.5], vari: vari) as! [AnyObject]
-                
             default:
-                
                 expr = ["notImplented"]
-                
             }
-            
-        
-            
         }
         else if expr[0] is String && expr[0] as! String == "log" {
             expr = derivAlgo(["product",["log2",expr[2]],["rev",["log2",expr[1]]]], vari: vari) as! [AnyObject]
         }
-        
         else if expr[0] is String && expr[0] as! String == "pow" {
-            
             if ifArray(expr[1]) && ifArray(expr[2]) {
-                
                 expr = ["product",["pow",expr[0],expr[1]],["add",["product",expr[2],derivAlgo(expr[1] as! [AnyObject], vari: vari),["rev",expr[1]]],["product",["ln",expr[1]],derivAlgo(expr[2] as! [AnyObject], vari: vari)]]]
-                
             }
-                
             else if !ifArray(expr[1]) && ifArray(expr[2]) {
-                
                 if expr[1] is Double {
-                    
                     expr = ["product",["pow",expr[1],expr[2]],log(expr[1] as! Double),derivAlgo(expr[2] as! [AnyObject], vari: vari)]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["product",["pow",expr[1],expr[2]],["add",["product",["rev",expr[1]],expr[2]],["product",["ln",expr[1]],derivAlgo(expr[2] as! [AnyObject], vari: vari)]]]
-                    
                 }
-                
             }
-                
             else if ifArray(expr[1]) && !ifArray(expr[2]) {
-                
                 if expr[2] is Double {
-                    
                     expr = ["product",expr[2],["pow",expr[1],(expr[2] as! Double)-1],derivAlgo(expr[1] as! [AnyObject], vari: vari)]
-                    
                 }
-                    
                 else {
-                    
                     expr = ["product",["pow",expr[1],expr[2]],["add",["ln",expr[1]],["product",expr[2],derivAlgo(expr[1] as! [AnyObject], vari: vari)],["rev",expr[1]]]]
-                    
                 }
-                
             }
-                
             else if !ifArray(expr[1]) && !ifArray(expr[2]) {
-                
-                if expr[1] is String && expr[1] as! String == vari {
-                    
+                if expr[1] is Double && expr[2] is String && expr[2] as! String == vari {
+                    return ["product",["pow",expr[1],expr[2]],["ln",expr[1]]]
+                }
+                else if expr[1] is Double && expr[2] is String && expr[2] as! String != vari {
+                    return ["add",0,0]
+                }
+                else if expr[1] is Double && expr[2] is Double {
+                    return ["add",0,0]
+                }
+                else if expr[1] is String && expr[1] as! String == vari {
                     if expr[2] is Double {
-                        
-                        expr = ["product",expr[2] as! Double,["pow",expr[1],expr[2] as! Double - 1]]
-                        
+                        return ["product",expr[2],["pow", expr[1], expr[2] as! Double - 1]]
                     }
-                        
                     else {
-                        
-                        expr = ["product",["pow",expr[1],expr[1]],["add",1,["ln","x"]]]
-                        
+                        if expr[2] as! String == vari {
+                            return ["product",["pow",expr[1],expr[1]],["add",["ln",expr[1],1]]]
+                        }
+                        else {
+                            return ["product",expr[2],["pow",expr[1],["add",["neg",expr[2]],1]]]
+                        }
                     }
-                    
                 }
-                    
                 else {
-                    
-                    expr = ["add",0,0]
-                    
+                    if expr[2] is Double {
+                        return ["add",0,0]
+                    }
+                    else {
+                        if expr[2] as! String == vari {
+                            return ["product",["pow",expr[1],expr[2]],["ln",expr[1]]]
+                        }
+                        else {
+                            return ["add",0,0]
+                        }
+                    }
                 }
-                
             }
-            
         }
-        
         return expr
-        
     }
+    
     func productDistributiveLaw (that: [AnyObject]) -> AnyObject {
         var expr = [AnyObject]()
         var lengthArray = [Int]()
@@ -991,14 +757,14 @@ class Functions: NSObject {
                 lengthArray.append(1)
             }
         }
-        
+
         var positionArray: [Int] = []
         var total = 1
         for i in lengthArray {
             positionArray.append(0)
             total *= i
         }
-        
+
         var counter = 0
         var positionOrderArray = [[Int]]()
         while counter < total {
@@ -1042,21 +808,20 @@ class Functions: NSObject {
         result.append(0)
         return result
     }
-    
-    
+
     func reduceRedundant(this: AnyObject) -> AnyObject {
         if ifArray(this) {
             var counter = 0
             let operatorName = (this as! [AnyObject])[0] as! String
-            
+
             if operatorName != "add" && operatorName != "product" {
                 return this
             }
-            
+
             var result = [AnyObject]()
             while counter < (this as! [AnyObject]).count {
                 var i: AnyObject = (this as! [AnyObject])[counter]
-                
+
                 if ifArray(i) {
                     i = reduceRedundant(i)
                     if (i as! [AnyObject])[0] as! String == operatorName {
@@ -1074,31 +839,31 @@ class Functions: NSObject {
             }
             return result
         }
-            
+
         else {
             return this
         }
     }
-    
+
     func combine(this: AnyObject) -> AnyObject {
         if ifArray(this) {
             var result = [this[0]] as [AnyObject]
             let numbers = (this as! [AnyObject]).filter({$0 is Double})
             var symbols = (this as! [AnyObject]).filter({$0 is String && $0 as! String != this[0] as! String})
             var symCat = [String: Int]()
-            
+
             while !symbols.isEmpty {
                 symCat[symbols[0] as! String] = symbols.filter({$0 as! String == symbols[0] as! String}).count
                 symbols = symbols.filter({$0 as! String != symbols[0] as! String})
             }
-            
+
             if (this as! [AnyObject])[0] as! String == "add" {
                 result.append(0)
                 var sum = numbers.reduce(0, combine: {$0 + ($1 as! Double)})
                 if sum != 0 {
                     result.append(sum)
                 }
-                
+
                 for (term, n) in symCat {
                     if n == 1 {
                         result.append(term)
@@ -1107,12 +872,12 @@ class Functions: NSObject {
                         result.append(combine(reduceRedundant(["product",term,n])))
                     }
                 }
-                
+
                 for i in (this as! [AnyObject]).filter({ifArray($0)}) {
                     result.append(combine(reduceRedundant(i)))
                 }
             }
-                
+
             else if (this as! [AnyObject])[0] as! String == "product" {
                 result.append(1)
                 if !(this as! [AnyObject]).filter({ifArray($0) && ($0 as! [AnyObject])[0] as! String == "add"}).isEmpty {
@@ -1120,14 +885,14 @@ class Functions: NSObject {
                 }
                 else {
                     var product = numbers.reduce(1, combine: {$0 * ($1 as! Double)})
-                    
+
                     if product == 0 {
                         return 0 // 0乘以任何数都得0
                     }
                     else if product != 1 {
                         result.append(product)
                     }
-                    
+
                     for (term, n) in symCat {
                         if n == 1 {
                             result.append(term)
@@ -1144,13 +909,27 @@ class Functions: NSObject {
             else if (this as! [AnyObject])[0] as! String == "pow" {
                 var base: AnyObject  = (this as! [AnyObject])[1]
                 var power: AnyObject = (this as! [AnyObject])[2]
-                if base is Double && base as! Double == 0 {
-                    return 0
+                // Deals with number to the power of a number
+                if power is Double {
+                    if power as! Double == 0 {
+                        if base is Double && base as! Double == 0 {
+                            return ["error", "0^0 undefined"]
+                        }
+                        else if base is Double {
+                            return 1
+                        }
+                    }
+                    else if power as! Double == 1 {
+                        return base
+                    }
+                    else {
+                        if base is Double {
+                            return pow((base as! Double), (power as! Double))
+                        }
+                    }
                 }
-                else if base is Double && base as! Double == 1 {
-                    return 1
-                }
-                
+
+
                 if ifArray(base) && (base as! [AnyObject])[0] as! String == "pow" {
                     var sum: AnyObject = combine(reduceRedundant(["product",power,(base as! [AnyObject])[2]]))
                     if sum is Double && sum as! Double == 0 {
@@ -1167,12 +946,10 @@ class Functions: NSObject {
                     return this
                 }
             }
-                
                 // TODO: log(n1, n2)
             else if (this as! [AnyObject])[0] as! String == "log" {
                 return this
             }
-                
             else {
                 if this[1] is Double {
                     return operationDict[this[0] as! String]!(this[1] as! Double)
@@ -1305,7 +1082,7 @@ class Functions: NSObject {
                 }
                 return result
             }
-            
+
             if that[0] as! String == "product"
             {
                 var tmp:[AnyObject] = []
@@ -1345,7 +1122,6 @@ class Functions: NSObject {
                         result.append(reduceSymbolically(["pow",countArray[i],tmp[i]]))
                     }
                     i += 1
-                    
                 }
                 if result.count == 1
                 {
@@ -1386,7 +1162,6 @@ class Functions: NSObject {
         }
         else
         {
-            
             if ifArray(structureFunc)
             {
                 if structureFunc[0] as! String == "add"
@@ -1429,7 +1204,6 @@ class Functions: NSObject {
                     }
                     else if structureFunc[1] as? [AnyObject] == nil && structureFunc[2] as? [AnyObject] == nil
                     {
-                        
                         if (structureFunc[1] as? Double != nil && structureFunc[2] as? Double != nil)
                         {
                             var double1:Double = 0
@@ -1450,9 +1224,6 @@ class Functions: NSObject {
                             var double2:Double = structureFunc[1] as! Double
                             returnArray = multiplyPolynomials(self.producePolynomialStructure(["pow",string1,1]), multipier: double2)
                         }
-                        
-                        
-                        
                     }
                     else if structureFunc[1] as? [AnyObject] != nil && structureFunc[2] as? [AnyObject] != nil
                     {
@@ -1532,10 +1303,9 @@ class Functions: NSObject {
                     return [structureFunc as! Double]
                 }
             }
-            
         }
     }
-    
+
     func getPolynomialValue(polynomial:[Double],value:Double)->Double
     {
         var result:Double = 0.0
@@ -1549,7 +1319,7 @@ class Functions: NSObject {
         }
         return result
     }
-    
+
     func diffPolynomial(polynomial:[Double])->[Double]
     {
         var result:[Double] = []
@@ -1559,7 +1329,7 @@ class Functions: NSObject {
             result.append(polynomial[Int(i)] * i)
             i += 1
         }
-        
+
         var j:Int = result.count - 1
         while result[j] == 0
         {
@@ -1572,7 +1342,7 @@ class Functions: NSObject {
         }
         return result
     }
-    
+
     func polynomialDivision(bigger:[Double],smaller:[Double])->([Double],[Double])
     {
         var tmpBigger:[Double] = bigger
@@ -1600,10 +1370,9 @@ class Functions: NSObject {
                 tmpBigger.removeLast()
             }
         }
-        
         return (divideResult,tmpBigger)
     }
-    
+
     func solvePolynomialEquation(polynomial:[Double])->[Double]
     {
         println(polynomial)
@@ -1620,8 +1389,8 @@ class Functions: NSObject {
         {
             range *= 2
         }
-        
-        
+
+
         //get number of roots
         var seriesOfPoly:[[Double]] = [polynomial,multiplyPolynomials(self.diffPolynomial(polynomial), multipier: -1)]
         var thisPoly:[Double] = [0]
@@ -1654,7 +1423,7 @@ class Functions: NSObject {
                 vp += 1
                 lastP = thisP
             }
-            
+
             if thisN * lastN > 0
             {
                 lastN = thisN
@@ -1667,10 +1436,6 @@ class Functions: NSObject {
             i += 1
         }
         var numberOfRoots = self.absolteValue(Double(vp - vn))
-        
-        
-        
-        
         var usedPolynomial:[Double] = polynomial
         //iteration
         var finalReturnValue:[Double] = []
@@ -1680,7 +1445,7 @@ class Functions: NSObject {
             var iterationCount = 0
             var group:[Double] = []
             i = 0
-            
+
             while i < 40
             {
                 i += 1
@@ -1708,9 +1473,7 @@ class Functions: NSObject {
                     Lij.append((chosenList[randomList[2]] - chosenList[randomList[3]])/2)
                     i += 1
                 }
-                
-                
-                
+
                 let probability:Double = 0.3
                 var Vij:[Double] = []
                 i = 0
@@ -1730,7 +1493,6 @@ class Functions: NSObject {
                 chosenList = []
                 sortedList += Vij
                 sortedList = self.sortWithPolynomial(usedPolynomial, list: sortedList)
-                
                 i = 0
                 while i < sortedList.count/2
                 {
@@ -1753,13 +1515,9 @@ class Functions: NSObject {
             var (subRee,_) = self.polynomialDivision(usedPolynomial, smaller: [thisResult,-1])
             usedPolynomial = subRee
         }
-        
-        
-        
         return finalReturnValue
     }
-    
-    
+
     func sortWithPolynomial(polynomial:[Double],list:[Double])->[Double]
     {
         var dynamicProg:Dictionary<Double,Double> = [:]
@@ -1787,8 +1545,7 @@ class Functions: NSObject {
         }
         return resultList
     }
-    
-    
+
     func generateRandomIntegers(smallest:Int,largest:Int,number:Int)->[Int]
     {
         var aNumber = smallest
@@ -1799,8 +1556,7 @@ class Functions: NSObject {
             aNumber += 1
         }
         var result:[Int] = []
-        
-        
+
         var i = 0
         while i < number
         {
@@ -1811,14 +1567,9 @@ class Functions: NSObject {
             list.removeAtIndex(integerValueIndex)
             i += 1
         }
-        
         return result
-        
-        
-        
-        
     }
-    
+
     func absolteValue(value:Double)->Double
     {
         if value >= 0
@@ -1862,7 +1613,7 @@ class Functions: NSObject {
                 i += 1
             }
         }
-        
+
         i = result.count - 1
         if i >= 0
         {
@@ -1889,11 +1640,6 @@ class Functions: NSObject {
         }
         return result
     }
-    
-    
-    
-    
-    
     //    func reduceFunctionStructureNumerically (this: [AnyObject]) -> [AnyObject] {
     //        var expr = this
     //        var result = [AnyObject]()
@@ -1907,7 +1653,6 @@ class Functions: NSObject {
     //        }
     //        return result
     //    }
-    
     //
     //        func deriv (vari: String) -> AnyObject {
     //            return self.derivStructureAlgo(self.functionStructure, vari: vari) as! [AnyObject]
@@ -1926,9 +1671,9 @@ class Functions: NSObject {
             return GCD(p2, p2: c)
         }
     }
-    
+
     func squareFree(a: [Double]) -> [[Double]] {
-        
+
         func MULT(p1: [Double], p2: [Double]) -> [Double] {
             var maxPow = p1.count + p2.count
             var result = [Double]()
@@ -1942,19 +1687,18 @@ class Functions: NSObject {
             }
             return simp(result)
         }
-        
-        
+
         func DIV (p1: [Double], p2: [Double]) -> [Double] {
             let (div, _) = polynomialDivision(p1, smaller: p2)
             return div
         }
-        
+
         var i = 1
         var output = [[Double]]()
         var b: [Double] = diffPolynomial(a)
         var c: [Double] = GCD(a, p2: b)
         var w: [Double] = DIV(a, c)
-        
+
         while c.count != 1 {
             var y: [Double] = GCD(w, p2: c)
             var z: [Double] = DIV(w, y)
@@ -1975,13 +1719,10 @@ class Functions: NSObject {
         }
         return output
     }
-    
     //
     //        func deriv (vari: String) -> AnyObject {
     //            return self.derivStructureAlgo(self.functionStructure, vari: vari) as! [AnyObject]
     //        }
-    
-    
     //=================
     func rendering(this: [AnyObject]) -> String {
         return produceStringFromFunctionStructure(this as AnyObject, self.varList)
@@ -1991,7 +1732,7 @@ class Functions: NSObject {
         var result = ["product"] as [AnyObject]
         var counter1 = 0
         var counter2 = 0
-        
+
         while counter1 < numeric_stru.count {
             counter2 = 0
             var tmpResult = [AnyObject]()
@@ -2044,4 +1785,3 @@ class Functions: NSObject {
         }
     }
 }
-
