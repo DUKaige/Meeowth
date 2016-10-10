@@ -1,75 +1,19 @@
-README
+Link to app store: https://itunes.apple.com/za/app/meeowth/id1019375424?mt=8
 
-            else if !ifArray(expr[1]) && !ifArray(expr[2]) {
-
-                if expr[1] is String && expr[1] as! String == vari {
-
-                    if expr[2] is Double {
-
-                        expr = ["product",expr[2] as! Double,["pow",expr[1],expr[2] as! Double - 1]]
-
-                    }
-
-                    else {
-
-                        expr = ["product",["pow",expr[1],expr[1]],["add",1,["ln","x"]]]
-
-                    }
-
-                }
-
-                else if expr[1] is String && expr[1] as! String != vari {
-
-                    expr = ["add",0,0]
-
-                }
-
-                else if expr[1] is Double {
-
-                    if expr[2] is String {
-
-                        expr = ["product",["pow", expr[1],expr[2]],log(expr[1] as! Double)]
-
-                    }
-
-                    else {
-
-                        expr = ["add",0,0]
-
-                    }
-
-                }
-
-            }
+Meeowth is a computational algebra system on iOS with powerful calculation capability. It includes necessary tools for both symbolic and numeric computation. The convenient graphical interface makes Meeowth really easy to use.
 
 
-
- 你把这个替换到deriv里的pow
-
-else if !ifArray(expr[1]) && !ifArray(expr[2])这一句再找找bug
-
-            else if power is Int {
-
-                var temp = [AnyObject]()
-
-                for i in 1...(power as! Int) {
-
-                    temp.append(base)
-
-                }
-
-                return combine(reduceRedundant(temp))
-
-            }
-
-            else {
-
-                return this
-
-            }
+Meeowth is currently capable of 
+· calculating the values of any valid expressions;
+·	plotting graphs of valid single-variable functions;
+·	plotting 3D graphs of valid single-variable or double-variable functions;
+·	solving polynomial equations in the real domain;
+·	differentiating real functions symbolically;
+·	expanding and simplifying functions;
+·	factorizing polynomials with rational coefficients in Galois Field.
 
 
-
-把combine的pow部分的else
-
-改成这个试试
+Key features:
+· Modules can be dragged in the main interface.
+· Specially made math keyboards include all the necessary functions.
+· Users are allowed to save their work.
